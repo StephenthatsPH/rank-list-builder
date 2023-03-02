@@ -3,7 +3,7 @@ class CreateJoinTableReviews < ActiveRecord::Migration[7.0]
     create_table :reviews do |t|
       t.integer :user_id
       t.integer :program_id
-      t.text :text
+      t.text :post
       t.integer :rating
 
       t.timestamps
