@@ -1,16 +1,19 @@
 class HospitalsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
+    # GET /hospitals
     def index
         hospitals = Hospital.all
         render json: hospitals
     end
 
+    # POST /hospitals
     def create
         hospital = Hospital.create(hospital_params)
         render json: hospital, status: :created
     end
 
+    # GET /hospitals/:id shows specific hospital
     def show
         hospital = find_hospital
         if hospital

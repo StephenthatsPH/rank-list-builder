@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :programs
   resources :hospitals
   get '/hello', to: 'application#hello_world'
 
