@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :programs
   resources :hospitals
-  get '/hello', to: 'application#hello_world'
 
   get '*path',
       to: 'fallback#index',
