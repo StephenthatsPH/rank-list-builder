@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.permit(:id, :post, :rating, :program_id, :user_id)
+        params.permit(:id, :text, :rating, :program_id, :user_id)
     end
 
     def render_not_found_response
