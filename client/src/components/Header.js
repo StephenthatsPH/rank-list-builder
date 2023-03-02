@@ -15,6 +15,7 @@ function Header() {
                 <Link to='/programs'> Programs </Link>
                 <Link to='/user/:id/ranklist'> Ranklist </Link>
                 <Link to='/user/:id/account'> Account </Link>
+                <button> LOGOUT </button>
             </nav>
             <Routes>
                 <Route exact path="/programs" element={<ProgramsPage />} />
