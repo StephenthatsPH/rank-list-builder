@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_010828) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_024449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_010828) do
     t.string "city"
     t.string "area_type"
     t.integer "hospital_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ranklists", force: :cascade do |t|
+    t.string "program_name"
+    t.integer "geographic"
+    t.integer "goodfit"
+    t.integer "reputation"
+    t.integer "personalities"
+    t.integer "qol"
+    t.integer "edu_training"
+    t.text "comment"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
