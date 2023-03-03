@@ -36,7 +36,7 @@ function NewReview() {
             <h2>Post new Review</h2>
             <form onSubmit={handleSubmit}>
                 <label>Write Review: </label>
-                {/* <select value={0} onChange={(e) => console.log(e.target.value)}>
+                <select value={0} onChange={(e) => console.log(e.target.value)}>
                     <option value="" disabled defaultValue hidden >
                         Select Overall Rating
                     </option>
@@ -45,8 +45,8 @@ function NewReview() {
                     <option>3</option>
                     <option>2</option>
                     <option>1</option>
-                </select> */}
-                <StarRating />
+                </select>
+                {/* <StarRating /> */}
                 <br />
                 <textarea
                     required
