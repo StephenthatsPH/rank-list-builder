@@ -1,11 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 function LoginForm() {
+
     return (
-        <div>
-            <h1>Login</h1>
-        </div>
-    )
+        <form>
+            <label>
+                Email:
+                <input required type="email" name="email" />
+            </label>
+            <br />
+            <label>
+                Password:
+                <input required type="password" name="password" />
+            </label>
+            <br />
+            <button type="submit">Log In</button>
+        </form>
+    );
 }
 
-export default LoginForm
+export default LoginForm;
