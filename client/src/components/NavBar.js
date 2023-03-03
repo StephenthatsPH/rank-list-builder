@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import UserAccount from './User/UserAccount';
+import AuthPage from './UserAuth/AuthPage'
 import Home from './Home';
+import About from './About';
 import ProgramsPage from './Programs/ProgramsPage';
 import ProgramCard from './Programs/ProgramCard';
+import NewReview from './Programs/Reviews/NewReview';
+import ReviewsList from './Programs/Reviews/ReviewsList';
 import Ranklist from './User/Ranklist';
-import About from './About';
-import AuthPage from './UserAuth/AuthPage'
+import UserAccount from './User/UserAccount';
 import { HospitalProvider } from '../context/hospitalsContext';
 import { ProgramProvider } from '../context/programsContext';
 import { ReviewProvider } from '../context/reviewsContext';
@@ -29,7 +31,7 @@ function NavBar({ currentUser }) {
                 <Routes>
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="/programs" element={<ProgramsPage />} />
-                    <Route exact path="/programs/:id/overview" element={<ProgramCard/>} />
+                    <Route exact path="/programs/:id/overview" element={[<ProgramCard/>, <NewReview/>, <ReviewsList/>]} />
                     <Route exact path="/user/:id/ranklist" element={<Ranklist />} />
                     <Route exact path="/user/:id/account" element={<UserAccount />} />
                     <Route exact path="/" element={<Home />} />
