@@ -5,7 +5,7 @@ import UserAccount from './UserAuth/UserAccount';
 import Home from './Home';
 import ProgramsPage from './ProgramsPage';
 import Ranklist from './Ranklist';
-import Hospitals from './Hospitals';
+import About from './About';
 import AuthPage from './UserAuth/AuthPage'
 
 
@@ -14,7 +14,7 @@ function NavBar() {
         <Router>
             <nav>
                 <Link to='/'> Home </Link>
-                <Link to='/hospitals'> Hospitals </Link>
+                <Link to='/About'> About </Link>
                 <Link to='/programs'> Programs </Link>
                 <Link to='/user/:id/ranklist'> Ranklist </Link>
                 <Link to='/user/:id/account'> Account </Link>
@@ -22,7 +22,7 @@ function NavBar() {
                 <button> LOGOUT </button>
             </nav>
             <Routes>
-                <Route exact path="/hospitals" element={<Hospitals />} />
+                <Route exact path="/about" element={<About />} />
                 <Route exact path="/programs" element={<ProgramsPage />} />
                 <Route exact path="/user/:id/ranklist" element={<Ranklist />} />
                 <Route exact path="/user/:id/account" element={<UserAccount />} />
