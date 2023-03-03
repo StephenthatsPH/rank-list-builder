@@ -4,7 +4,7 @@ class ProgramsController < ApplicationController
     # GET /programs
     def index 
         programs = Program.all
-        render json: programs # include: :reviews
+        render json: programs
     end
 
     # POST /programs
@@ -17,7 +17,7 @@ class ProgramsController < ApplicationController
     def show 
         program = find_program
         if program
-            render json: program # include: :reviews
+            render json: program 
         else
             render_not_found_response
         end
@@ -27,7 +27,7 @@ class ProgramsController < ApplicationController
     private
 
     def find_program
-        program.find(params[:id])
+        Program.find(params[:id])
     end
 
     def render_not_found_response 

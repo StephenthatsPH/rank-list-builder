@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
 function App() {
+  const [user, setUser] = useState(true)
 
   return (
-    <NavBar />
+    <NavBar currentUser={user} />
   );
 }
 

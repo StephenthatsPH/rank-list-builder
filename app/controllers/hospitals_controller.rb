@@ -26,7 +26,7 @@ class HospitalsController < ApplicationController
     private
 
     def find_hospital
-        hospital.find(params[:id])
+        Hospital.find(params[:id])
     end
 
     def render_not_found_response 
