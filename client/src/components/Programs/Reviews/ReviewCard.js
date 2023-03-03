@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import EditReview from "./EditReview"
+import { UserContext } from "../../../context/userContext";
 
 function ReviewCard({ id, post, rating, program_id, user_id, review, currentUser, onReviewDelete, onReviewEdit }) {
+    const {user} = useContext(UserContext)
     const [isEditing, setIsEditing] = useState(false);
-    // const [currentUser_id, setCurrentUser_id] = useState(currentUser.id);
 
     // let deletedReview = { review }
 
@@ -18,7 +19,7 @@ function ReviewCard({ id, post, rating, program_id, user_id, review, currentUser
     //     setIsEditing(false);
     //     onReviewEdit(updatedReview);
     // }
-    // if (currentUser_id === user_id) {
+    if (user.id === user_id) {
         return (
             <li>
                 {isEditing ? (
@@ -50,16 +51,16 @@ function ReviewCard({ id, post, rating, program_id, user_id, review, currentUser
                 )}
             </li>
         )
-    // } else {
-    //     return (
-    //         <div>
-    //             <p hidden>{user_id}</p>
-    //             <h3>Rating: {rating}</h3>
-    //             <p>{text}</p>
-    //             <p hidden>{program_id} </p>
-    //         </div>
-    //     )
-    // }
+    } else {
+        return (
+            <div>
+                <p hidden>{user_id}</p>
+                <h3>Rating: {rating}</h3>
+                <p>{post}</p>
+                <p hidden>{program_id} </p>
+            </div>
+        )
+    }
 }
 
 export default ReviewCard

@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import NavBar from "./components/NavBar";
+import { UserContext } from "./context/userContext";
 
 function App() {
-  const [user, setUser] = useState(true)
+  const { user, setUser, auth, setAuth } = useContext(UserContext)
 
   return (
-    <NavBar currentUser={user} />
+    <NavBar auth={auth} setAuth={setAuth} />
   );
 }
 

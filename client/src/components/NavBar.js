@@ -9,16 +9,13 @@ import NewReview from './Programs/Reviews/NewReview';
 import ReviewsList from './Programs/Reviews/ReviewsList';
 import Ranklist from './User/Ranklist';
 import UserAccount from './User/UserAccount';
-import { HospitalProvider } from '../context/hospitalsContext';
-import { ProgramProvider } from '../context/programsContext';
-import { ReviewProvider } from '../context/reviewsContext';
 
 
-function NavBar({ currentUser }) {
-    console.log(currentUser)
-    if (currentUser == true) {
+function NavBar({ auth, setAuth }) {
+    console.log(auth)
+    if (auth === true) {
         return (
-            <ReviewProvider><ProgramProvider><HospitalProvider>
+            // <ReviewProvider><ProgramProvider><HospitalProvider>
             <Router>
                 <nav>
                     <Link to='/'> Home </Link>
@@ -37,7 +34,7 @@ function NavBar({ currentUser }) {
                     <Route exact path="/" element={<Home />} />
                 </Routes>
             </Router>
-            </HospitalProvider></ProgramProvider></ReviewProvider>
+            // </HospitalProvider></ProgramProvider></ReviewProvider>
         )
     } else {
         return (
@@ -51,6 +48,7 @@ function NavBar({ currentUser }) {
                 <Routes>
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="/programs" element={<ProgramsPage />} />
+                    <Route exact path="/programs/:id/overview" element={[<ProgramCard/>, <ReviewsList/>]} />
                     <Route exact path="/login-signup" element={<AuthPage />} />
                     <Route exact path="/" element={<Home />} />
                 </Routes>
