@@ -5,7 +5,7 @@ import { ProgramContext } from "../../../context/programsContext";
 
 function ReviewCard({ id, post, rating, program_id, user_id, review }) {
     const {user} = useContext(UserContext)
-    const {deleteReview} = useContext(ProgramContext)
+    const {deleteReview, editedReview} = useContext(ProgramContext)
     const [isEditing, setIsEditing] = useState(false);
 
     let deletedReview = { review }
@@ -17,10 +17,10 @@ function ReviewCard({ id, post, rating, program_id, user_id, review }) {
         .then(deleteReview(deletedReview))
     }
 
-    // function handleUpdateReview(updatedReview) {
-    //     setIsEditing(false);
-    //     onReviewEdit(updatedReview);
-    // }
+    function handleUpdateReview(updatedReview) {
+        setIsEditing(false);
+        editedReview(updatedReview);
+    }
     if (user.id == user_id) {
         return (
             <li>
@@ -30,7 +30,7 @@ function ReviewCard({ id, post, rating, program_id, user_id, review }) {
                         id={id}
                         post={post}
                         rating={rating}
-                        // onReviewEdit={handleUpdateReview}
+                        onReviewEdit={handleUpdateReview}
                     />
                 ) : (
                     <div>

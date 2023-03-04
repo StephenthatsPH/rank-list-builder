@@ -44,8 +44,29 @@ const ProgramProvider = ({ children }) => {
         setPrograms(updatedPrograms);
     }
 
+    function editedReview(updatedReview) {
+        const program = programs.find((program) => program.id == updatedReview.program_id)
+        const updatedReviews = program.reviews.map((review) => {
+            if (review.id === updatedReview.id) {
+                return updatedReview;
+            } else {
+                return review;
+            }
+        });
+        const updatedProgram = { ...program, reviews: updatedReviews }
+        const updatedPrograms = programs.map((obj) => {
+            if (obj.id === program.id) {
+                return updatedProgram
+            }
+            else {
+                return obj
+            }
+        })
+        setPrograms(updatedPrograms);
+    }
+
     return (
-        <ProgramContext.Provider value={{ programs, setPrograms, addReview, deleteReview }}>
+        <ProgramContext.Provider value={{ programs, setPrograms, addReview, deleteReview, editedReview }}>
             {children}
         </ProgramContext.Provider>
     )

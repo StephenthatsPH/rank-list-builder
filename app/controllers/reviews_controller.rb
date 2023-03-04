@@ -16,6 +16,13 @@ class ReviewsController < ApplicationController
         render json: review, status: :created
     end
 
+    # PATCH /programs/:id
+    def update
+        review = find_review
+        review.update(review_params)
+        render json: review, include: :program
+    end
+
     # DELETE /reviews/:id
     def destroy
         review = find_review
