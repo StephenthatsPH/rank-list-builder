@@ -4,15 +4,13 @@ const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [auth, setAuth] = useState(true)
+    const [auth, setAuth] = useState(false)
 
     useEffect(() => {
         fetch('/users')
             .then((res) => res.json())
             .then((data) =>{
                 setUser(data);
-                // setAuth(true)
-                // console.log(data)
             }) 
     }, []);
 
