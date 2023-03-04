@@ -48,7 +48,6 @@ function ReviewCard({ id, post, rating, program_id, user_id, review }) {
                                 ❌DELETE
                             </span>
                         </button>
-
                     </div>
                 )}
             </li>

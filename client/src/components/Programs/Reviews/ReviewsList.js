@@ -8,7 +8,7 @@ function ReviewsList() {
         name: "",
         reviews: []
     });
-    const { programs, setPrograms } = useContext(ProgramContext)
+    const { programs } = useContext(ProgramContext)
     const params = useParams()
 
     useEffect(() => {
@@ -26,10 +26,7 @@ function ReviewsList() {
                 rating={review.rating}
                 program_id={review.program_id}
                 user_id={review.user_id}
-                // onReviewDelete={onReviewDelete}
-                // onReviewEdit={onReviewEdit}
                 review={review}
-                // currentUser={currentUser}
             />
         </div>
     })
