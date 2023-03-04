@@ -10,7 +10,7 @@ const ProgramProvider = ({ children }) => {
             .then((res) => res.json())
             .then((data) =>{
                 setPrograms(data);
-                console.log(data)
+                // console.log(data)
             }) 
     }, []);
 

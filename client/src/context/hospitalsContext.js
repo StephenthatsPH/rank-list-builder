@@ -10,7 +10,7 @@ const HospitalProvider = ({ children }) => {
             .then((res) => res.json())
             .then((data) =>{
                 setHospitals(data);
-                console.log(data)
+                // console.log(data)
             }) 
     }, []);
 

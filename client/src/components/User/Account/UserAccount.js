@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from '../../context/userContext'
+import { UserContext } from "../../../context/userContext";
 import UserInfo from "./UserInfo";
-import EditUserInfo from "./EditUserInfo";
+import EditUserInfo from ".//EditUserInfo";
 import UserPassword from "./UserPassword";
 import EditUserPassword from "./EditUserPassword";
 
-function UserSettings(){
+function UserAccount(){
     const { user, setUser } = useContext(UserContext)
     const [isChangeInfo, setIsChangeInfo] = useState(false);
     const [isChangePassword, setIsChangePassword] = useState(false);
@@ -36,4 +36,4 @@ function UserSettings(){
     )
 }
 
-export default UserSettings;
+export default UserAccount;

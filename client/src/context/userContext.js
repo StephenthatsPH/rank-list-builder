@@ -12,6 +12,7 @@ const UserProvider = ({ children }) => {
                 r.json().then((user) => {
                     setUser(user)
                     setAuth(true)
+                    console.log(user)
                 });
             }
         })

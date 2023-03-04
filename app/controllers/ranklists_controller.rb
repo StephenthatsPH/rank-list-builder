@@ -1,20 +1,16 @@
 class RanklistsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    # GET /reviews
+    # GET /ranklists
     def index 
         ranklists = Ranklist.all
         render json: ranklist
     end
 
-    # POST /reviews
+    # POST /ranklists
     def create
         ranklist = Ranklist.create(ranklist_params)
-        if ranklist.valid?
-            render json: ranklist, status: :created
-        else
-            render json: error
-        end
+        render json: ranklist, status: :created
     end
 
     # GET /ranklists/:id shows specific ranklist

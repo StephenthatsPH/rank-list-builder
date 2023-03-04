@@ -7,8 +7,8 @@ import ProgramsPage from './Programs/ProgramsPage';
 import ProgramCard from './Programs/ProgramCard';
 import NewReview from './Programs/Reviews/NewReview';
 import ReviewsList from './Programs/Reviews/ReviewsList';
-import Ranklist from './User/Ranklist';
-import UserAccount from './User/UserAccount';
+import Ranklist from './User/Ranklist/Ranklist';
+import UserAccount from './User/Account/UserAccount';
 
 
 function NavBar({ auth, user, handleLogout }) {

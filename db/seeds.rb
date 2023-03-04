@@ -21,4 +21,6 @@ Review.create(post: "This hospital is awesome and I love it so much. I had a gre
 Review.create(post: "I didn't rotate at this hospital, and my interview is tomorrow. I will give this one a neutral rating, because I'm not sure how I feel about it yet", rating: 3, program_id: 2, user_id: 1)
 Review.create(post: "The hospital looks great and the interview went very well. There are a few things I like about this hospital because of its location. I would recommend this to some of my juniors.", rating: 2, program_id: 1, user_id: 1)
 
+Ranklist.create(program_name: 'Northwell SIUH', geographic: 4, goodfit: 4, reputation: 5, personalities: 4, qol: 3, edu_training: 5, comment: 'Location is the biggest problem', user_id: 2)
+
 puts "✅ Done seeding!"
