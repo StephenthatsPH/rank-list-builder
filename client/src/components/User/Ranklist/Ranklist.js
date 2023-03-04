@@ -6,7 +6,6 @@ import RanklistCard from './RanklistCard';
 
 function Ranklist() {
     const { users } = useContext(UserContext)
-    // const params = useParams()
     const [isShow, setIsShow] = useState(false);
 
     const getRanklists = users.ranklists.map((ranklist) => {
@@ -21,6 +20,7 @@ function Ranklist() {
                 qol={ranklist.qol}
                 edu_training={ranklist.edu_training}
                 comment={ranklist.comment}
+                user_id={ranklist.user_id}
                 ranklist={ranklist}
             />
         </div>
@@ -39,16 +39,17 @@ function Ranklist() {
                     </button>
                 </>
             ) : (
-                <>
-                    <button onClick={() => setIsShow((isShow) => !isShow)}>
-                        <span role="img" aria-label="edit">
-                            📝Add Program
-                        </span>
-                    </button></>
+
+                <button onClick={() => setIsShow((isShow) => !isShow)}>
+                    <span role="img" aria-label="edit">
+                        📝Add Program
+                    </span>
+                </button>
+
             )}
-            <div>
+            <ul>
                 {getRanklists}
-            </div>
+            </ul>
         </div>
     )
 }

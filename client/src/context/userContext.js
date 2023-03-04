@@ -5,7 +5,6 @@ const UserContext = React.createContext();
 const UserProvider = ({ children }) => {
     const [users, setUsers] = useState([])
     const [auth, setAuth] = useState(false)
-    const [ranklists, setRanklists] = useState([])
 
     useEffect(() => {
         fetch('/me').then((r) => {
@@ -13,7 +12,6 @@ const UserProvider = ({ children }) => {
                 r.json().then((user) => {
                     setUsers(user)
                     setAuth(true)
-                    setRanklists(user.ranklists)
                     console.log(user.ranklists)
                 });
             }
@@ -30,17 +28,14 @@ const UserProvider = ({ children }) => {
     }
 
     function deleteRanklist(deletedRanklist) {
-        // const user = users.id  == deletedRanklist.user_id
-        // const updatedRanklists = ranklists.filter((r) => r.id !== deletedRanklist.id);
-        // const updatedUser = { ...user, ranklists: updatedRanklists }
-        // setUsers(updatedUser);
-        const updatedRanklists = [...users.ranklists, deletedRanklist]
-        const updatedUser = { ...users, ranklists: updatedRanklists }
+        const filteredRanklists = users.ranklists.filter((r) => r.id !== deletedRanklist.ranklist.id);
+        const updatedUser = { ...users, ranklists: filteredRanklists }
+
         setUsers(updatedUser);
     }
 
     function editedRanklist(updatedRanklist) {
-        const updatedRanklists = ranklists.map((ranklist) => {
+        const updatedRanklists = users.ranklists.map((ranklist) => {
             if (ranklist.id === updatedRanklist.id) {
                 return updatedRanklist;
             } else {

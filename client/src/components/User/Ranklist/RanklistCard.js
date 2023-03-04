@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from '../../../context/userContext';
 import EditRankCard from './EditRankCard';
 
-function RanklistCard({ id, program_name, geographic, goodfit, reputation, personalities, qol, edu_training, comment, ranklist }) {
+function RanklistCard({ id, program_name, geographic, goodfit, reputation, personalities, qol, edu_training, comment, user_id, ranklist }) {
     const { deleteRanklist, editedRanklist } = useContext(UserContext)
     const [isEditing, setIsEditing] = useState(false);
 
@@ -21,10 +21,11 @@ function RanklistCard({ id, program_name, geographic, goodfit, reputation, perso
     }
 
     return (
-        <div>
+        <li>
             {isEditing ? (
                 <EditRankCard
                     id={id}
+                    user_id={user_id}
                     program_name={program_name}
                     geographic={geographic}
                     goodfit={goodfit}
@@ -38,6 +39,7 @@ function RanklistCard({ id, program_name, geographic, goodfit, reputation, perso
             ) : (
                 <div>
                     <p hidden>{id}</p>
+                    <p hidden>{user_id}</p>
                     <p>Program Name: {program_name}</p>
                     <p>Location: {geographic}</p>
                     <p>Goodfit: {goodfit}</p>
@@ -58,7 +60,7 @@ function RanklistCard({ id, program_name, geographic, goodfit, reputation, perso
                     </button>
                 </div>
             )}
-        </div>
+        </li>
     )
 }
 
