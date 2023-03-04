@@ -14,8 +14,38 @@ const ProgramProvider = ({ children }) => {
             }) 
     }, []);
 
+    function addReview(newReview) {
+        const program = programs.find((program) => program.id == newReview.program_id)
+        const updatedReviews = [...program.reviews, newReview]
+        const updatedProgram = { ...program, reviews: updatedReviews }
+        const updatedPrograms = programs.map((obj) => {
+            if (obj.id === program.id) {
+                return updatedProgram
+            }
+            else {
+                return obj
+            }
+        })
+        setPrograms(updatedPrograms)
+    }
+
+    function deleteReview(deletedReview) {
+        const program = programs.find((program) => program.id == deletedReview.review.program_id)
+        const updatedReviews = program.reviews.filter((r) => r.id !== deletedReview.review.id);
+        const updatedProgram = { ...program, reviews: updatedReviews }
+        const updatedPrograms = programs.map((obj) => {
+            if (obj.id === program.id) {
+                return updatedProgram
+            }
+            else {
+                return obj
+            }
+        })
+        setPrograms(updatedPrograms);
+    }
+
     return (
-        <ProgramContext.Provider value={{ programs, setPrograms }}>
+        <ProgramContext.Provider value={{ programs, setPrograms, addReview, deleteReview }}>
             {children}
         </ProgramContext.Provider>
     )

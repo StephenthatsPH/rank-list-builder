@@ -36,7 +36,6 @@ function ReviewsList() {
 
     return (
         <div>
-            <h3>List of reviews</h3>
             <h3>Reviews of {selectedProgram.name}:</h3>
             <ul>
                 {getReviews}

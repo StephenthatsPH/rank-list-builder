@@ -1,19 +1,21 @@
 import React, { useContext, useState } from "react";
 import EditReview from "./EditReview"
 import { UserContext } from "../../../context/userContext";
+import { ProgramContext } from "../../../context/programsContext";
 
-function ReviewCard({ id, post, rating, program_id, user_id, review, currentUser, onReviewDelete, onReviewEdit }) {
+function ReviewCard({ id, post, rating, program_id, user_id, review }) {
     const {user} = useContext(UserContext)
+    const {deleteReview} = useContext(ProgramContext)
     const [isEditing, setIsEditing] = useState(false);
 
-    // let deletedReview = { review }
+    let deletedReview = { review }
 
-    // function handleDeleteReview(e) {
-    //     fetch(`/reviews/${id}`, {
-    //         method: 'DELETE'
-    //     })
-    //     .then(onReviewDelete(deletedReview))
-    // }
+    function handleDeleteReview(e) {
+        fetch(`/reviews/${id}`, {
+            method: 'DELETE'
+        })
+        .then(deleteReview(deletedReview))
+    }
 
     // function handleUpdateReview(updatedReview) {
     //     setIsEditing(false);
@@ -41,7 +43,7 @@ function ReviewCard({ id, post, rating, program_id, user_id, review, currentUser
                                 📝EDIT
                             </span>
                         </button>
-                        <button /*onClick={handleDeleteReview}*/>
+                        <button onClick={handleDeleteReview}>
                             <span role="img" aria-label="delete">
                                 ❌DELETE
                             </span>

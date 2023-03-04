@@ -1,20 +1,24 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ReviewContext } from "../../../context/reviewsContext";
+import { ProgramContext } from "../../../context/programsContext";
+import { UserContext } from "../../../context/userContext";
 import StarRating from "./StarRating";
 
 function NewReview() {
     const { id } = useParams()
-    const {reviews} = useContext(ReviewContext)
+    const {addReview} = useContext(ProgramContext)
+    const {user} = useContext(UserContext)
+    const [rating, setRating] = useState('')
+    const [post, setPost] = useState('')
 
 
     function handleSubmit(e) {
         e.preventDefault();
         const review = {
-            // rating: rating,
-            // text: text,
-            // program_id: id,
-            // user_id: user_id
+            rating: rating,
+            post: post,
+            program_id: id,
+            user_id: user.id
         }
         fetch('/reviews', {
             method: 'POST',
@@ -24,19 +28,18 @@ function NewReview() {
             }
         })
             .then(res => res.json())
-            .then(newReview => console.log(newReview))
+            .then(newReview => addReview(newReview))
         console.log('new review added')
-        // setRating('')
-        // setText('')
+        setRating('')
+        setPost('')
     };
 
 
     return (
         <div>
-            <h2>Post new Review</h2>
             <form onSubmit={handleSubmit}>
                 <label>Write Review: </label>
-                <select value={0} onChange={(e) => console.log(e.target.value)}>
+                <select value={rating} onChange={(e) => setRating(e.target.value)}>
                     <option value="" disabled defaultValue hidden >
                         Select Overall Rating
                     </option>
@@ -52,8 +55,8 @@ function NewReview() {
                     required
                     cols="65"
                     rows="6"
-                    value={''}
-                    onChange={(e) => console.log(e.target.value)}
+                    value={post}
+                    onChange={(e) => setPost(e.target.value)}
                 />
                 <br />
                 <button>Submit</button>
