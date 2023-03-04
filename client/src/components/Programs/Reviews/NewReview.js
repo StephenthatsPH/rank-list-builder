@@ -6,8 +6,8 @@ import StarRating from "./StarRating";
 
 function NewReview() {
     const { id } = useParams()
-    const {addReview} = useContext(ProgramContext)
-    const {user} = useContext(UserContext)
+    const { addReview } = useContext(ProgramContext)
+    const { user } = useContext(UserContext)
     const [rating, setRating] = useState('')
     const [post, setPost] = useState('')
 
@@ -39,7 +39,7 @@ function NewReview() {
         <div>
             <form onSubmit={handleSubmit}>
                 <label>Write Review: </label>
-                <select value={rating} onChange={(e) => setRating(e.target.value)}>
+                {/* <select value={rating} onChange={(e) => setRating(e.target.value)}>
                     <option value="" disabled defaultValue hidden >
                         Select Overall Rating
                     </option>
@@ -48,8 +48,8 @@ function NewReview() {
                     <option>3</option>
                     <option>2</option>
                     <option>1</option>
-                </select>
-                {/* <StarRating /> */}
+                </select> */}
+                <StarRating rating={rating} setRating={setRating} />
                 <br />
                 <textarea
                     required
