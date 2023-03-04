@@ -12,7 +12,6 @@ const UserProvider = ({ children }) => {
                 r.json().then((user) => {
                     setUsers(user)
                     setAuth(true)
-                    console.log(user.ranklists)
                 });
             }
         })

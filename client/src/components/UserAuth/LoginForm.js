@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 function LoginForm() {
-    const {setUser, setAuth} = useContext(UserContext)
+    const {setUsers, setAuth} = useContext(UserContext)
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,7 +20,7 @@ function LoginForm() {
             body: JSON.stringify({ email, password })
         }).then((response) => {
             if (response.ok) {
-                response.json().then((user) => setUser(user));
+                response.json().then((user) => setUsers(user));
                 setAuth(true)
                 navigate('/')
             } else {

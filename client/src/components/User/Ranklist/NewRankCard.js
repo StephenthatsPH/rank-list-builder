@@ -14,6 +14,12 @@ function NewRankCard({ setIsShow, isShow }) {
     const [ranklistEdu_training, setRanklistEdu_training] = useState('');
     const [ranklistComment, setRanklistComment] = useState('');
     const [ranklistProgram_name, setRanklistProgram_name] = useState('');
+    const [hoverGeo, setHoverGeo] = useState(0);
+    const [hoverGood, setHoverGood] = useState(0);
+    const [hoverRep, setHoverRep] = useState(0);
+    const [hoverPer, setHoverPer] = useState(0);
+    const [hoverQol, setHoverQol] = useState(0);
+    const [hoverEdu, setHoverEdu] = useState(0);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -59,77 +65,119 @@ function NewRankCard({ setIsShow, isShow }) {
             </select>
             <br />
             <label>Location: </label>
-            <select value={ranklistGeographic} onChange={(e) => setRanklistGeographic(e.target.value)}>
-                <option value="" disabled defaultValue hidden >
-                    Select Rating
-                </option>
-                <option>5</option>
-                <option>4</option>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-            </select>
-            <br />
+            <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                        <button
+                            type="button"
+                            key={index}
+                            className={index <= (hoverGeo || ranklistGeographic) ? "on" : "off"}
+                            onClick={() => setRanklistGeographic(index)}
+                            value={ranklistGeographic}
+                            onMouseEnter={() => setHoverGeo(index)}
+                            onMouseLeave={() => setHoverGeo(ranklistGeographic)}
+                        >
+                            <span className="star">&#9733;</span>
+                        </button>
+                    );
+                })}
+            </div>
             <label>Goodfit: </label>
-            <select value={ranklistGoodfit} onChange={(e) => setRanklistGoodfit(e.target.value)}>
-                <option value="" disabled defaultValue hidden >
-                    Select Rating
-                </option>
-                <option>5</option>
-                <option>4</option>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-            </select>
-            <br />
+            <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                        <button
+                            type="button"
+                            key={index}
+                            className={index <= (hoverGood || ranklistGoodfit) ? "on" : "off"}
+                            onClick={() => setRanklistGoodfit(index)}
+                            value={ranklistGoodfit}
+                            onMouseEnter={() => setHoverGood(index)}
+                            onMouseLeave={() => setHoverGood(ranklistGoodfit)}
+                        >
+                            <span className="star">&#9733;</span>
+                        </button>
+                    );
+                })}
+            </div>
             <label>Reputation: </label>
-            <select value={ranklistReputation} onChange={(e) => setRanklistReputation(e.target.value)}>
-                <option value="" disabled defaultValue hidden >
-                    Select Rating
-                </option>
-                <option>5</option>
-                <option>4</option>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-            </select>
-            <br />
+            <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                        <button
+                            type="button"
+                            key={index}
+                            className={index <= (hoverRep || ranklistReputation) ? "on" : "off"}
+                            onClick={() => setRanklistReputation(index)}
+                            value={ranklistReputation}
+                            onMouseEnter={() => setHoverRep(index)}
+                            onMouseLeave={() => setHoverRep(ranklistReputation)}
+                        >
+                            <span className="star">&#9733;</span>
+                        </button>
+                    );
+                })}
+            </div>
             <label>Personalities: </label>
-            <select value={ranklistPersonalities} onChange={(e) => setRanklistPersonalities(e.target.value)}>
-                <option value="" disabled defaultValue hidden >
-                    Select Rating
-                </option>
-                <option>5</option>
-                <option>4</option>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-            </select>
-            <br />
+            <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                        <button
+                            type="button"
+                            key={index}
+                            className={index <= (hoverPer || ranklistPersonalities) ? "on" : "off"}
+                            onClick={() => setRanklistPersonalities(index)}
+                            value={ranklistPersonalities}
+                            onMouseEnter={() => setHoverPer(index)}
+                            onMouseLeave={() => setHoverPer(ranklistPersonalities)}
+                        >
+                            <span className="star">&#9733;</span>
+                        </button>
+                    );
+                })}
+            </div>
             <label>Quality of Life: </label>
-            <select value={ranklistQol} onChange={(e) => setRanklistQol(e.target.value)}>
-                <option value="" disabled defaultValue hidden >
-                    Select Rating
-                </option>
-                <option>5</option>
-                <option>4</option>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-            </select>
-            <br />
+            <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                        <button
+                            type="button"
+                            key={index}
+                            className={index <= (hoverQol || ranklistQol) ? "on" : "off"}
+                            onClick={() => setRanklistQol(index)}
+                            value={ranklistQol}
+                            onMouseEnter={() => setHoverQol(index)}
+                            onMouseLeave={() => setHoverQol(ranklistQol)}
+                        >
+                            <span className="star">&#9733;</span>
+                        </button>
+                    );
+                })}
+            </div>
             <label>Educational Training: </label>
-            <select value={ranklistEdu_training} onChange={(e) => setRanklistEdu_training(e.target.value)}>
-                <option value="" disabled defaultValue hidden >
-                    Select Rating
-                </option>
-                <option>5</option>
-                <option>4</option>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-            </select>
-            <br />
+            <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                        <button
+                            type="button"
+                            key={index}
+                            className={index <= (hoverEdu || ranklistEdu_training) ? "on" : "off"}
+                            onClick={() => setRanklistEdu_training(index)}
+                            value={ranklistEdu_training}
+                            onMouseEnter={() => setHoverEdu(index)}
+                            onMouseLeave={() => setHoverEdu(ranklistEdu_training)}
+                        >
+                            <span className="star">&#9733;</span>
+                        </button>
+                    );
+                })}
+            </div>
             <label>Comments: </label>
             <br />
             <textarea

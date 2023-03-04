@@ -28,7 +28,7 @@ function Ranklist() {
 
     return (
         <div>
-            <h1>{users.first_name}'s rank list</h1>
+            <h1>{users.first_name}'s Rank List</h1>
             {isShow ? (
                 <>
                     <NewRankCard setIsShow={setIsShow} isShow={isShow} />
