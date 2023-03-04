@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AuthPage from './UserAuth/AuthPage'
 import Home from './Home';
@@ -11,8 +11,7 @@ import Ranklist from './User/Ranklist';
 import UserAccount from './User/UserAccount';
 
 
-function NavBar({ auth, setAuth }) {
-    console.log(auth)
+function NavBar({ auth, handleLogout }) {
     if (auth === true) {
         return (
             // <ReviewProvider><ProgramProvider><HospitalProvider>
@@ -23,7 +22,7 @@ function NavBar({ auth, setAuth }) {
                     <Link to='/programs'> Programs </Link>
                     <Link to='/user/:id/ranklist'> Ranklist </Link>
                     <Link to='/user/:id/account'> Account </Link>
-                    <button> LOGOUT </button>
+                    <button onClick={handleLogout}> LOGOUT </button>
                 </nav>
                 <Routes>
                     <Route exact path="/about" element={<About />} />

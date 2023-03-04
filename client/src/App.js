@@ -3,10 +3,10 @@ import NavBar from "./components/NavBar";
 import { UserContext } from "./context/userContext";
 
 function App() {
-  const { user, setUser, auth, setAuth } = useContext(UserContext)
+  const { auth, handleLogout } = useContext(UserContext)
 
   return (
-    <NavBar auth={auth} setAuth={setAuth} />
+    <NavBar auth={auth} handleLogout={handleLogout}/>
   );
 }
 

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     
     # GET /me
     def show
-        current_user = User.find(session[:user_id])
-        render json: current_user
+        user = User.find(session[:user_id])
+        render json: user
     end
         
     # POST /signup

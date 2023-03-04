@@ -7,15 +7,27 @@ const UserProvider = ({ children }) => {
     const [auth, setAuth] = useState(false)
 
     useEffect(() => {
-        fetch('/users')
-            .then((res) => res.json())
-            .then((data) =>{
-                setUser(data);
-            }) 
+        fetch('/me').then((r) => {
+            if (r.ok) {
+                r.json().then((user) => {
+                    setUser(user)
+                    setAuth(true)
+                });
+            }
+        })
     }, []);
 
+    function handleLogout() {
+        fetch('/logout', { method: 'DELETE', }).then((r) => {
+            if (r.ok) {
+                setUser(null);
+                setAuth(false);
+            }
+        });
+    }
+
     return (
-        <UserContext.Provider value={{ user, setUser, auth, setAuth }}>
+        <UserContext.Provider value={{ user, setUser, auth, setAuth, handleLogout }}>
             {children}
         </UserContext.Provider>
     )
