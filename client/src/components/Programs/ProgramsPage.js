@@ -13,7 +13,7 @@ function ProgramsPage() {
             <li key={hospital.id}>
             <h2>{hospital.name}</h2>
             {programs.map((program) => {
-                if (program.hospital_id == hospital.id) {
+                if (program.hospital_id === hospital.id) {
                     return <ul>
                         <li key={program.id}>
                             <h3>{program.specialty}</h3>
@@ -22,8 +22,6 @@ function ProgramsPage() {
                             </Link>
                         </li>
                     </ul>
-                } else {
-                    return <ul><li>No available programs</li></ul>
                 }
             })}
         </li>

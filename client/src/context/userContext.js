@@ -4,7 +4,7 @@ const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [auth, setAuth] = useState(false)
+    const [auth, setAuth] = useState(true)
 
     useEffect(() => {
         fetch('/users')
