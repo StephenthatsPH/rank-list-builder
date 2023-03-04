@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../../context/userContext'
+import NewRankCard from './NewRankCard';
 import RanklistCard from './RanklistCard';
 
 function Ranklist() {
-    const { user } = useContext(UserContext)
-    const params = useParams()
+    const { users } = useContext(UserContext)
+    // const params = useParams()
+    const [isShow, setIsShow] = useState(false);
 
-    const getRanklists = user.ranklists.map((ranklist) => {
+    const getRanklists = users.ranklists.map((ranklist) => {
         return <div className="ranklist-preview" key={ranklist.id}>
             <RanklistCard
                 id={ranklist.id}
@@ -19,14 +21,34 @@ function Ranklist() {
                 qol={ranklist.qol}
                 edu_training={ranklist.edu_training}
                 comment={ranklist.comment}
+                ranklist={ranklist}
             />
         </div>
     })
 
     return (
         <div>
-            <h1>{user.first_name}'s rank list</h1>
-            {getRanklists}
+            <h1>{users.first_name}'s rank list</h1>
+            {isShow ? (
+                <>
+                    <NewRankCard setIsShow={setIsShow} isShow={isShow} />
+                    <button onClick={() => setIsShow((isShow) => !isShow)}>
+                        <span role="img" aria-label="edit">
+                            ❌ Cancel
+                        </span>
+                    </button>
+                </>
+            ) : (
+                <>
+                    <button onClick={() => setIsShow((isShow) => !isShow)}>
+                        <span role="img" aria-label="edit">
+                            📝Add Program
+                        </span>
+                    </button></>
+            )}
+            <div>
+                {getRanklists}
+            </div>
         </div>
     )
 }

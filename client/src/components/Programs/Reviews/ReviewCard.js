@@ -4,7 +4,7 @@ import { UserContext } from "../../../context/userContext";
 import { ProgramContext } from "../../../context/programsContext";
 
 function ReviewCard({ id, post, rating, program_id, user_id, review }) {
-    const {user} = useContext(UserContext)
+    const {users} = useContext(UserContext)
     const {deleteReview, editedReview} = useContext(ProgramContext)
     const [isEditing, setIsEditing] = useState(false);
 
@@ -21,7 +21,7 @@ function ReviewCard({ id, post, rating, program_id, user_id, review }) {
         setIsEditing(false);
         editedReview(updatedReview);
     }
-    if (user.id == user_id) {
+    if (users.id === user_id) {
         return (
             <li>
                 {isEditing ? (

@@ -4,7 +4,7 @@ class RanklistsController < ApplicationController
     # GET /ranklists
     def index 
         ranklists = Ranklist.all
-        render json: ranklist
+        render json: ranklist, include: :user
     end
 
     # POST /ranklists
@@ -17,11 +17,18 @@ class RanklistsController < ApplicationController
     def show 
         ranklist = find_ranklist
         if ranklist
-            render json: ranklist 
+            render json: ranklist, include: :user
         else
             render_not_found_response
         end
     end
+
+        # PATCH /reviews/:id
+        def update
+            ranklist = find_ranklist
+            ranklist.update(ranklist_params)
+            render json: ranklist, include: :user
+        end
 
     # DELETE /ranklist/:id
     def destroy

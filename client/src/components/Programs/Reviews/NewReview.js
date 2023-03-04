@@ -7,7 +7,7 @@ import StarRating from "./StarRating";
 function NewReview() {
     const { id } = useParams()
     const { addReview } = useContext(ProgramContext)
-    const { user } = useContext(UserContext)
+    const { users } = useContext(UserContext)
     const [rating, setRating] = useState('')
     const [post, setPost] = useState('')
 
@@ -18,7 +18,7 @@ function NewReview() {
             rating: rating,
             post: post,
             program_id: id,
-            user_id: user.id
+            user_id: users.id
         }
         fetch('/reviews', {
             method: 'POST',

@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
         render json: review, status: :created
     end
 
-    # PATCH /programs/:id
+    # PATCH /reviews/:id
     def update
         review = find_review
         review.update(review_params)

@@ -6,7 +6,7 @@ import UserPassword from "./UserPassword";
 import EditUserPassword from "./EditUserPassword";
 
 function UserAccount(){
-    const { user, setUser } = useContext(UserContext)
+    const { users, setUsers } = useContext(UserContext)
     const [isChangeInfo, setIsChangeInfo] = useState(false);
     const [isChangePassword, setIsChangePassword] = useState(false);
 
@@ -23,12 +23,12 @@ function UserAccount(){
     return(
         <div>
             <hr/>
-            {isChangeInfo ? <EditUserInfo user={user} setUser={setUser}/> : <UserInfo user={user}/>}
+            {isChangeInfo ? <EditUserInfo user={users} setUser={setUsers}/> : <UserInfo user={users}/>}
             <button onClick={handleToggleInfoForm}>
                 {isChangeInfo ? 'Go back' : 'Update Info'}
             </button>
             <br/>
-            {isChangePassword ? <EditUserPassword user={user}/> : <UserPassword />}
+            {isChangePassword ? <EditUserPassword user={users}/> : <UserPassword />}
             <button onClick={handleTogglePasswordForm}>
                 {isChangePassword ? 'Go back' : 'Change Password'}
             </button>
