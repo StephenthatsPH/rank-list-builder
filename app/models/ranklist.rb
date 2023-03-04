@@ -1,5 +1,5 @@
 class Ranklist < ApplicationRecord
-    belongs_to :users
+    belongs_to :user
 
     validates :program_name, presence: true
     validates :geographic, length: {in: 1..5, message: "Rating scale is between 1 through 5"}
