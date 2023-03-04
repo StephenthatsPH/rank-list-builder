@@ -11,17 +11,17 @@ import Ranklist from './User/Ranklist';
 import UserAccount from './User/UserAccount';
 
 
-function NavBar({ auth, handleLogout }) {
+function NavBar({ auth, user, handleLogout }) {
+    
     if (auth === true) {
         return (
-            // <ReviewProvider><ProgramProvider><HospitalProvider>
             <Router>
                 <nav>
                     <Link to='/'> Home </Link>
                     <Link to='/About'> About </Link>
                     <Link to='/programs'> Programs </Link>
-                    <Link to='/user/:id/ranklist'> Ranklist </Link>
-                    <Link to='/user/:id/account'> Account </Link>
+                    <Link to={`/user/${user.id}/ranklist`}> Ranklist </Link>
+                    <Link to={`/user/${user.id}/account`}> Account </Link>
                     <button onClick={handleLogout}> LOGOUT </button>
                 </nav>
                 <Routes>
@@ -33,7 +33,6 @@ function NavBar({ auth, handleLogout }) {
                     <Route exact path="/" element={<Home />} />
                 </Routes>
             </Router>
-            // </HospitalProvider></ProgramProvider></ReviewProvider>
         )
     } else {
         return (
