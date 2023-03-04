@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import AuthPage from './UserAuth/AuthPage'
 import Home from './Home';
 import About from './About';
@@ -31,6 +31,7 @@ function NavBar({ auth, user, handleLogout }) {
                     <Route exact path="/user/:id/ranklist" element={<Ranklist />} />
                     <Route exact path="/user/:id/account" element={<UserAccount />} />
                     <Route exact path="/" element={<Home />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </Router>
         )
@@ -49,6 +50,7 @@ function NavBar({ auth, user, handleLogout }) {
                     <Route exact path="/programs/:id/overview" element={[<ProgramCard/>, <ReviewsList/>]} />
                     <Route exact path="/login-signup" element={<AuthPage />} />
                     <Route exact path="/" element={<Home />} />
+                    <Route path="*" element={<Navigate to="/login-signup" replace />} />
                 </Routes>
             </Router>
         )

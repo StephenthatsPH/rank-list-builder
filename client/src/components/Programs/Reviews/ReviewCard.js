@@ -19,7 +19,7 @@ function ReviewCard({ id, post, rating, program_id, user_id, review, currentUser
     //     setIsEditing(false);
     //     onReviewEdit(updatedReview);
     // }
-    if (user.id === user_id) {
+    if (user.id == user_id) {
         return (
             <li>
                 {isEditing ? (

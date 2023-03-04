@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState([])
     const [auth, setAuth] = useState(false)
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const UserProvider = ({ children }) => {
     function handleLogout() {
         fetch('/logout', { method: 'DELETE', }).then((r) => {
             if (r.ok) {
-                setUser(null);
+                setUser([]);
                 setAuth(false);
             }
         });
