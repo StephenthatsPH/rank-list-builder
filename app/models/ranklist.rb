@@ -9,10 +9,5 @@ class Ranklist < ApplicationRecord
     validates :edu_training, length: {in: 1..5, message: "Rating scale is between 1 through 5"}
     validates :user_id, length: {in: 1..5, message: "Rating scale is between 1 through 5"}
 
-    attr_accessor :geographic, :goodfit, :reputation, :personalities, :edu_training
-
-    def overall geographic, goodfit, reputation, personalities, edu_training
-        geographic + goodfit + reputation + personalities + edu_training
-    end
-
+    default_scope { order(overall_rating: :desc) }
 end
