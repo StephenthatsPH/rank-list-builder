@@ -2,7 +2,7 @@ import React from 'react'
 
 function About() {
     return (
-        <div>
+        <div className='trans-white'>
             <h1>About Us</h1>
             <h3>The Problem:</h3>
             <p>There are no suitable websites or prefabricated mediums for physician applicants to codify their Rank Order Lists when ranking their preferred specialty training programs.</p>

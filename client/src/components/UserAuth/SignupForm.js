@@ -37,46 +37,45 @@ function SignupForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                First Name:
-                <input type="text" name="first_name" value={first_name} onChange={(e) => setFirst_Name(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Last Name:
-                <input type="text" name="last_name" value={last_name} onChange={(e) => setLast_Name(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Phone #:
-                <input type="text" name="phone_number" value={phone_number} onChange={(e) => setPhone_Number(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Email:
-                <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Password:
-                <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Confirm Password:
-                <input type="password" name="password_confirmation" value={password_confirmation} onChange={(e) => setPassword_Confirmation(e.target.value)} />
-            </label>
-            <br />
-            {errors.length > 0 && (
-                <ul style={{ color: "red" }}>
-                    {errors.map((error) => (
-                        <li key={error}>{error}</li>
-                    ))}
-                </ul>
-            )}
-            <button type="submit">Sign Up</button>
-        </form>
+        <div className='main'>
+            <div className='main-content'>
+                <form onSubmit={handleSubmit}>
+                <h1 className='title'>Create Account</h1>
+                    <h2>
+                        First Name:
+                        <input type="text" name="first_name" value={first_name} onChange={(e) => setFirst_Name(e.target.value)} />
+                    </h2>
+                    <h2>
+                        Last Name:
+                        <input type="text" name="last_name" value={last_name} onChange={(e) => setLast_Name(e.target.value)} />
+                    </h2>
+                    <h2>
+                        Phone #:
+                        <input type="text" name="phone_number" value={phone_number} onChange={(e) => setPhone_Number(e.target.value)} />
+                    </h2>
+                    <h2>
+                        Email:
+                        <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </h2>
+                    <h2>
+                        Password:
+                        <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </h2>
+                    <h2>
+                        Confirm Password:
+                        <input type="password" name="password_confirmation" value={password_confirmation} onChange={(e) => setPassword_Confirmation(e.target.value)} />
+                    </h2>
+                    {errors.length > 0 && (
+                        <ul style={{ color: "red" }}>
+                            {errors.map((error) => (
+                                <li key={error}>{error}</li>
+                            ))}
+                        </ul>
+                    )}
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
     );
 }
 

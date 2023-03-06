@@ -53,6 +53,7 @@ function NewReview() {
                 <br />
                 <textarea
                     required
+                    placeholder="Type your review here..."
                     cols="65"
                     rows="6"
                     value={post}

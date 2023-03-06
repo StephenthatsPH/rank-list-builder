@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 function LoginForm() {
-    const {setUsers, setAuth} = useContext(UserContext)
+    const { setUsers, setAuth } = useContext(UserContext)
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -30,26 +30,29 @@ function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Email:
-                <input required type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <br />
-            <label>
-                Password:
-                <input required type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <br />
-            {errors.length > 0 && (
-                <ul style={{ color: "red" }}>
-                    {errors.map((error) => (
-                        <li key={error}>{error}</li>
-                    ))}
-                </ul>
-            )}
-            <button type="submit">Log In</button>
-        </form>
+        <div className='main'>
+            <div className='main-content'>
+                <form onSubmit={handleSubmit}>
+                    <h1 className='title'>Login</h1>
+                    <h2>
+                        Email:
+                        <input required type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </h2>
+                    <h3>
+                        Password:
+                        <input required type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </h3>
+                    {errors.length > 0 && (
+                        <ul style={{ color: "red" }}>
+                            {errors.map((error) => (
+                                <li key={error}>{error}</li>
+                            ))}
+                        </ul>
+                    )}
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
     );
 }
 

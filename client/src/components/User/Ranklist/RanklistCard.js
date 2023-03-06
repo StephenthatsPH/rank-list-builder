@@ -41,14 +41,20 @@ function RanklistCard({ id, program_name, geographic, goodfit, reputation, perso
                 <div>
                     <p hidden>{id}</p>
                     <p hidden>{user_id}</p>
-                    <p>Program Name: {program_name}</p>
-                    <p>Location: {geographic}&#9733;</p>
-                    <p>Goodfit: {goodfit}&#9733;</p>
+                    <span className='rankCard'>
+                    <h3>{program_name}</h3>
+                    <h4>Overall Rating: {overall}&#9733;</h4>
+                    </span>
+                    <span className='rankCard'>
+                    <p>Location/Livability: {geographic}&#9733;</p>
+                    <p>Goodfit/Vibe: {goodfit}&#9733;</p>
                     <p>Reputation: {reputation}&#9733;</p>
-                    <p>Personalities: {personalities}&#9733;</p>
+                    </span>
+                    <span className='rankCard'>
                     <p>Quality of Life: {qol}&#9733;</p>
                     <p>Educational Training: {edu_training}&#9733;</p>
-                    <p>Overall Rating: {overall}&#9733;</p>
+                    <p>Resident/Attending Personality Fit: {personalities}&#9733;</p>
+                    </span>
                     <p>Comments: {comment}</p>
                     <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
                         <span role="img" aria-label="edit">

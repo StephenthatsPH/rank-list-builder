@@ -11,10 +11,10 @@ function ProgramCard() {
             if (program.id == id) {
                 return <div key={id}>
                     <h1>{program.name}</h1>
+                    <h4>{program.specialty}</h4>
                     <h4>{program.address}</h4>
                     <h4>{program.website}</h4>
                     <h4>PGY1 Salary: ${program.pgy1salary}</h4>
-                    <h4>{program.specialty}</h4>
                     <h4>Program Size: {program.program_size}</h4>
                     <h4>Program Age: {program.program_age}</h4>
                     <h3>Location Details</h3>

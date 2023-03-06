@@ -48,9 +48,9 @@ function Ranklist() {
                 </button>
 
             )}
-            <ul>
+            <ol>
                 {getRanklists}
-            </ul>
+            </ol>
         </div>
     )
 }

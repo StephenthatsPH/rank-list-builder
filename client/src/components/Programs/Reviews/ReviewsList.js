@@ -32,7 +32,7 @@ function ReviewsList() {
     })
 
     return (
-        <div>
+        <div className='trans-white'>
             <h3>Reviews of {selectedProgram.name}:</h3>
             <ul>
                 {getReviews}

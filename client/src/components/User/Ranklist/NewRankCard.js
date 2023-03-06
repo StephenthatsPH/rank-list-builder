@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
 import { UserContext } from "../../../context/userContext";
 import ProgramNameSelect from "./ProgramNameSelect";
 
 function NewRankCard({ setIsShow, isShow }) {
-    const { id } = useParams()
     const { users, addRanklist } = useContext(UserContext)
     const [ranklistGeographic, setRanklistGeographic] = useState('');
     const [ranklistGoodfit, setRanklistGoodfit] = useState('');

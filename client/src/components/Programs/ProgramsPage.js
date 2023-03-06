@@ -25,7 +25,7 @@ function ProgramsPage() {
     })
 
     return (
-        <div>
+        <div className='trans-white'>
             <h1>Programs</h1>
             {getHospitals}
         </div>

@@ -12,22 +12,24 @@ import UserAccount from './User/Account/UserAccount';
 
 
 function NavBar({ auth, user, handleLogout }) {
-    
+
     if (auth === true) {
         return (
             <Router>
-                <nav>
-                    <Link to='/'> Home </Link>
-                    <Link to='/About'> About </Link>
-                    <Link to='/programs'> Programs </Link>
-                    <Link to={`/user/${user.id}/ranklist`}> Ranklist </Link>
-                    <Link to={`/user/${user.id}/account`}> Account </Link>
-                    <button onClick={handleLogout}> LOGOUT </button>
-                </nav>
+                <div className='nav'>
+                    <nav className='nav-items'>
+                        <Link to='/' className='nav-item'> Home </Link>
+                        <Link to='/About' className='nav-item'> About </Link>
+                        <Link to='/programs' className='nav-item'> Programs </Link>
+                        <Link to={`/user/${user.id}/ranklist`} className='nav-item'> Ranklist </Link>
+                        <Link to={`/user/${user.id}/account`} className='nav-item'> Account </Link>
+                        <button onClick={handleLogout}> LOGOUT </button>
+                    </nav>
+                </div>
                 <Routes>
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="/programs" element={<ProgramsPage />} />
-                    <Route exact path="/programs/:id/overview" element={[<ProgramCard/>, <NewReview/>, <ReviewsList/>]} />
+                    <Route exact path="/programs/:id/overview" element={[<ProgramCard />, <NewReview />, <ReviewsList />]} />
                     <Route exact path="/user/:id/ranklist" element={<Ranklist />} />
                     <Route exact path="/user/:id/account" element={<UserAccount />} />
                     <Route exact path="/" element={<Home />} />
@@ -38,16 +40,18 @@ function NavBar({ auth, user, handleLogout }) {
     } else {
         return (
             <Router>
-                <nav>
-                    <Link to='/'> Home </Link>
-                    <Link to='/About'> About </Link>
-                    <Link to='/programs'> Programs </Link>
-                    <Link to='/login-signup'> Login</Link>
-                </nav>
+                <div className='nav'>
+                    <nav className='nav-items'>
+                        <Link to='/' className='nav-item'> Home </Link>
+                        <Link to='/About' className='nav-item'> About </Link>
+                        <Link to='/programs' className='nav-item'> Programs </Link>
+                        <Link to='/login-signup' className='nav-item'> Login</Link>
+                    </nav>
+                </div>
                 <Routes>
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="/programs" element={<ProgramsPage />} />
-                    <Route exact path="/programs/:id/overview" element={[<ProgramCard/>, <ReviewsList/>]} />
+                    <Route exact path="/programs/:id/overview" element={[<ProgramCard />, <ReviewsList />]} />
                     <Route exact path="/login-signup" element={<AuthPage />} />
                     <Route exact path="/" element={<Home />} />
                     <Route path="*" element={<Navigate to="/login-signup" replace />} />

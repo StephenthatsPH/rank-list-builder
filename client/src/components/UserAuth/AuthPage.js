@@ -10,7 +10,7 @@ function AuthPage() {
     };
 
     return (
-        <div>
+        <div className='center'>
             {isSignup ? <SignupForm /> : <LoginForm />}
             <button onClick={handleToggleForm}>
                 {isSignup ? 'Already have an account? Log in' : 'Need to create an account? Sign up'}
