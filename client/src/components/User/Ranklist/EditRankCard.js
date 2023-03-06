@@ -29,12 +29,15 @@ function EditRankCard({ id, program_name, geographic, goodfit, reputation, perso
                 personalities: ranklistPersonalities,
                 qol: ranklistQol,
                 edu_training: ranklistEdu_training,
+                overall_rating: getOverall,
                 comment: ranklistComment,
             }),
         })
             .then((res) => res.json())
             .then((updatedRanklist) => onRanklistEdit(updatedRanklist));
     }
+    
+    const getOverall = (ranklistGeographic + ranklistEdu_training + ranklistGoodfit + ranklistPersonalities + ranklistQol + ranklistReputation)
 
     return (
         <form onSubmit={handleEditSubmit}>
@@ -163,7 +166,7 @@ function EditRankCard({ id, program_name, geographic, goodfit, reputation, perso
                 value={ranklistComment}
                 onChange={(e) => setRanklistComment(e.target.value)}
             />
-            <button>
+            <button onClick={getOverall}>
                 <input
                     type="submit"
                     value="Submit"

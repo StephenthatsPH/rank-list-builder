@@ -9,29 +9,24 @@ function ProgramsPage() {
 
 
     const getHospitals = hospitals.map((hospital) => {
-        return <ul>
-            <li key={hospital.id}>
+        return <div key={hospital.id}>
             <h2>{hospital.name}</h2>
             {programs.map((program) => {
                 if (program.hospital_id === hospital.id) {
-                    return <ul>
-                        <li key={program.id}>
-                            <h3>{program.specialty}</h3>
-                            <Link to={`/programs/${program.id}/overview`} >
-                                <p>More info on {program.name}'s {program.specialty} program.</p>
-                            </Link>
-                        </li>
+                    return <ul key={program.id}>
+                        <h3>{program.specialty}</h3>
+                        <Link to={`/programs/${program.id}/overview`} >
+                            <p>More info on {program.name}'s {program.specialty} program.</p>
+                        </Link>
                     </ul>
                 }
             })}
-        </li>
-        </ul>
+        </div>
     })
 
     return (
         <div>
             <h1>Programs</h1>
-            <p>List of programs base on specialty</p>
             {getHospitals}
         </div>
     )

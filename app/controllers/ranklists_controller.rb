@@ -48,7 +48,7 @@ class RanklistsController < ApplicationController
         end
 
         def ranklist_params
-            params.permit(:id, :program_name, :geographic, :goodfit, :reputation, :personalities, :qol, :edu_training, :comment, :user_id)
+            params.permit(:id, :program_name, :geographic, :goodfit, :reputation, :personalities, :qol, :edu_training, :overall_rating, :comment, :user_id)
         end
 
         def render_not_found_response

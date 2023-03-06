@@ -36,6 +36,7 @@ function NewRankCard({ setIsShow, isShow }) {
                 personalities: ranklistPersonalities,
                 qol: ranklistQol,
                 edu_training: ranklistEdu_training,
+                overall_rating: getOverall,
                 comment: ranklistComment,
                 user_id: users.id
             }),
@@ -52,6 +53,8 @@ function NewRankCard({ setIsShow, isShow }) {
         setRanklistReputation('')
         setIsShow(!isShow)
     }
+
+    const getOverall = (ranklistGeographic + ranklistEdu_training + ranklistGoodfit + ranklistPersonalities + ranklistQol + ranklistReputation)
 
     return (
         <form onSubmit={handleSubmit}>
@@ -187,7 +190,7 @@ function NewRankCard({ setIsShow, isShow }) {
                 value={ranklistComment}
                 onChange={(e) => setRanklistComment(e.target.value)}
             />
-            <button>
+            <button onClick={getOverall}>
                 <input
                     type="submit"
                     value="Submit"

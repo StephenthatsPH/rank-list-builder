@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_024449) do
     t.integer "personalities"
     t.integer "qol"
     t.integer "edu_training"
+    t.integer "overall_rating"
     t.text "comment"
     t.integer "user_id"
     t.datetime "created_at", null: false

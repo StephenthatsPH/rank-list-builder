@@ -8,6 +8,7 @@ class CreateRanklists < ActiveRecord::Migration[7.0]
       t.integer :personalities
       t.integer :qol
       t.integer :edu_training
+      t.integer :overall_rating
       t.text :comment
       t.integer :user_id
 

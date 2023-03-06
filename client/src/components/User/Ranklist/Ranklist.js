@@ -19,6 +19,7 @@ function Ranklist() {
                 personalities={ranklist.personalities}
                 qol={ranklist.qol}
                 edu_training={ranklist.edu_training}
+                overall={ranklist.overall_rating}
                 comment={ranklist.comment}
                 user_id={ranklist.user_id}
                 ranklist={ranklist}
